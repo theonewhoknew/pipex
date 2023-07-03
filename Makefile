@@ -6,7 +6,7 @@ LIBFT =  $(LIBFT_DIR)/libft.a
 
 OBJECTS_DIR = objs
 	
-SRCS = $(addprefix srcs/, pipex.c)
+SRCS = $(addprefix srcs/, pipex.c init.c check.c parse_cmds.c execute.c)
 
 OBJS = $(patsubst srcs/%.c,$(OBJECTS_DIR)/%.o, $(SRCS))
 
@@ -15,10 +15,10 @@ CFLAGS = -Wall -Werror -Wextra -I inc/
 all: make_libft $(NAME) 
 
 $(NAME) : $(OBJS) inc/pipex.h $(LIBFT)
-	cc -g  -o $(NAME) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft
+	cc -g  -o $(NAME) $(OBJS) -L$(LIBFT_DIR) -lft
 
 objs/%.o : srcs/%.c $(LIBFT) inc/pipex.h | $(OBJECTS_DIR)
-	cc -g -c $(CFLAGS) $< -o $@
+	cc -g -c  $< -o $@
 
 $(OBJECTS_DIR) :
 	mkdir -p $(OBJECTS_DIR)

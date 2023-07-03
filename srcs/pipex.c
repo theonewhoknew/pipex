@@ -1,21 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../inc/pipex.h"
+#include "../libft/libft.h"
 #include <unistd.h>
- 
-int main()
+#include <fcntl.h>
+
+
+int main(int argc, char *argv[], char **envp)
 {
-	pid_t pid;
- 
-	pid = fork();
-	if (pid == -1)
-	{
-		perror("fork");
-		exit(EXIT_FAILURE);
-	}
- 
-	if (pid == 0)
-		printf("This is the child process. (pid: %d)\n", getpid());
-	else
-		printf("This is the parent process. (pid: %d)\n", getpid());
-	return (0);
+	t_data data;
+
+	init_pipex(argc, argv, envp, &data);
+	check(argv, &data);
+	parse_cmds(argv, &data);
+	execute(&data);
 }
