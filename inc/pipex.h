@@ -19,5 +19,6 @@ typedef struct s_data
 void	init_pipex(int argc, char **argv, char **envp, t_data *data);
 void	check(char **argv, t_data *data);
 int		parse_cmds(char **argv, t_data *data);
+void 	execute(t_data *data);
 
 #endif

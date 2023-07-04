@@ -52,7 +52,5 @@ int parse_cmds(char **argv, t_data *data)
 		return (1);
 	if (look_for_cmd2(data->args_2[0], data) == 1)
 		return (1);
-	ft_printf("%s\n", data->cmd1_fullpath);
-	ft_printf("%s\n", data->cmd2_fullpath);
 	return (0);
 }

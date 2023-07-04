@@ -14,5 +14,12 @@ void check(char **argv, t_data *data)
 		perror("");
 		return ;
 	}
+	data->outfile_fd = open(argv[4], O_WRONLY);
+	if (data->outfile_fd == -1)
+	{
+		ft_printf("bash: %s", data->outfile_path);
+		perror("");
+		return ;
+	}
 
 }
